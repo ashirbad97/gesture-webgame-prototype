@@ -14,7 +14,7 @@ def on_message(client, userdata, msg):
 	payload = msg.payload.decode()
 	payload1 = json.loads(payload)
 	print(payload1[0])
-	pyautogui.moveTo(payload1[0], payload1[1], duration=0.01)
+	pyautogui.moveTo(payload1[0], payload1[1], duration=0.001)
        # client.disconnect()     
     
 client = mqtt.Client()

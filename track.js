@@ -11,7 +11,7 @@ var gamepos = [];
 
 const modelParams = {
     flipHorizontal: true,   // flip e.g for video  
-    maxNumBoxes: 20,        // maximum number of boxes to detect
+    maxNumBoxes: 1,        // maximum number of boxes to detect  has been changed to detect only the hand
     iouThreshold: 0.5,      // ioU threshold for non-max suppression
     scoreThreshold: 0.6,    // confidence threshold for predictions.
 }
@@ -76,8 +76,19 @@ function runDetection() {
             let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2)
             let midvaly = predictions[0].bbox[1] + (predictions[0].bbox[3] /2)
             gamepos[0] = document.body.clientWidth * (midval / video.width)
-            gamepos[1] = document.body.clientHeight * (midvaly / video.height)
+            gamepos[1] = document.documentElement.clientHeight * (midvaly / video.height)
+
+            // console.log('Offset X ' , midval)
+            // console.log('Offset Y ' , midvaly)
+
            // updatePaddleControl(gamex)
+            // console.log('Raw Data X ' , midval);
+            // console.log('Raw Data Y ' , midvaly);
+
+            // console.log('window height' , window.innerHeight);
+            // console.log('window width' , window.innerWidth);
+            // console.log('clientWidth' , document.body.clientWidth);
+            // console.log('clientHeight' , document.documentElement.clientHeight);
             console.log('X: ', gamepos[0]);
             console.log('Y: ', gamepos[1]);
 
