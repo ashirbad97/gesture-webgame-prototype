@@ -1,0 +1,11 @@
+#Files
+edl-v10
+epl-v10
+
+#File Extensions
+
+*.txt
+*.exe
+*.dll
+*.example
+*.conf
